@@ -1,7 +1,8 @@
-package PACKAGE_NAME;
+import java.util.Scanner;
 
-/**
- * Created by DG on 2017. 3. 28..
- */
 public class Problem1000 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(input.nextInt() + input.nextInt());
+    }
 }
