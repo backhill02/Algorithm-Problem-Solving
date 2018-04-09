@@ -1,0 +1,4 @@
+rootProject.name = 'Algorithm-Problem-Solving'
+
+include ':beakjoon'
+include ':topcoder'
