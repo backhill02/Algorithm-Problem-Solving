@@ -1,14 +1,14 @@
-const readline = require('readline');
+const readLine = require('readline');
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout
+const rl = readLine.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-rl.on('line', function(line) {
-	var input = line.split(" ");
-	var a = parseInt(input[0]);
-	var b = parseInt(input[1]);
-	console.log(a+b);
-	rl.close();
+rl.on('line', function (line) {
+  let input = line.split(" ");
+  let a = parseInt(input[0]);
+  let b = parseInt(input[1]);
+  console.log(a + b);
+  rl.close();
 });
