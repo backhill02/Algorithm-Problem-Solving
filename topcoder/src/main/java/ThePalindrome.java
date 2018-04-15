@@ -1,14 +1,18 @@
 public class ThePalindrome {
 
   public int find(String s) {
-    String result = s;
-    for (int i = s.length() - 1; i >= 0; i--) {
-      String reverseResult = new StringBuffer(result).reverse().toString();
-      if (result.equals(reverseResult)) {
-        break;
+    for (int i = s.length(); ; i++) {
+      boolean flag = true;
+
+      for (int j = 0; j < s.length(); j++) {
+        if ((i - j - 1) < s.length() && s.charAt(i - j - 1) != s.charAt(j)) {
+          flag = false;
+          break;
+        }
       }
-      result += s.substring(i - 1, i);
+      if (flag) {
+        return i;
+      }
     }
-    return result.length();
   }
 }
