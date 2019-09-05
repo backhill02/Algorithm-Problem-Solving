@@ -1,38 +1,42 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Allergy {
     private static int friendsCnt;
     private static int menuCount;
     private static String[][] canEatArr;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int testCnt = sc.nextInt();
-        sc.nextLine();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int testCnt = Integer.parseInt(br.readLine().trim());
         for (int t = 0; t < testCnt; t++) {
-            friendsCnt = sc.nextInt();
-            menuCount = sc.nextInt();
-            sc.nextLine();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            friendsCnt = Integer.parseInt(st.nextToken());
+            menuCount = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
             for (int f = 0; f < friendsCnt; f++) {
-                sc.next();
+                st.nextToken();
             }
-            sc.nextLine();
             canEatArr = new String[50][50];
             for (int m = 0; m < menuCount; m++) {
-                int catEatCnt = sc.nextInt();
+                st = new StringTokenizer(br.readLine());
+                int catEatCnt = Integer.parseInt(st.nextToken());
                 for (int ce = 0; ce < catEatCnt; ce++) {
-                    canEatArr[m][ce] = sc.next();
+                    canEatArr[m][ce] = st.nextToken();
                 }
-                sc.nextLine();
             }
             System.out.println(selectMenu(new Stack<>(), 0));
         }
-        sc.close();
     }
 
     private static int selectMenu(Stack<Integer> selected, int menuIdx) {
         if (menuIdx == menuCount) {
-            if(canEverybodyEat(selected)) {
+            if (canEverybodyEat(selected)) {
                 return selected.size();
             } else {
                 return Integer.MAX_VALUE;

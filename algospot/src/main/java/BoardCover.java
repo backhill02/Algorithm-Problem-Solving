@@ -1,4 +1,7 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class BoardCover {
     private static final int[][][] COVER_TYPE = {
@@ -10,18 +13,17 @@ public class BoardCover {
     private static int h;
     private static int w;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int testCnt = sc.nextInt();
-        sc.nextLine();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int testCnt = Integer.parseInt(br.readLine().trim());
         StringBuilder result = new StringBuilder();
         for (int t = 0; t < testCnt; t++) {
-            h = sc.nextInt();
-            w = sc.nextInt();
-            sc.nextLine();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            h = Integer.parseInt(st.nextToken());
+            w = Integer.parseInt(st.nextToken());
             int[][] board = new int[h][w];
             for (int y = 0; y < h; y++) {
-                String line = sc.nextLine();
+                String line = br.readLine();
                 for (int x = 0; x < w; x++) {
                     if (line.charAt(x) == '.') {
                         board[y][x] = 0;
@@ -30,13 +32,9 @@ public class BoardCover {
                     }
                 }
             }
-            result.append(cover(board));
-            if (t < testCnt - 1) {
-                result.append("\n");
-            }
+            result.append(cover(board)).append("\n");
         }
         System.out.print(result);
-        sc.close();
     }
 
     private static boolean set(int[][] board, int y, int x, int type, int delta) {

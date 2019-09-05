@@ -1,33 +1,32 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Picnic {
     private static int n;
     private static int m;
     private static boolean[][] areFriends;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int testCnt = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int testCnt = Integer.parseInt(br.readLine().trim());
         StringBuilder result = new StringBuilder();
-        sc.nextLine();
+        StringTokenizer st;
         for (int i = 0; i < testCnt; i++) {
-            n = sc.nextInt();
-            m = sc.nextInt();
-            sc.nextLine();
+            st = new StringTokenizer(br.readLine());
+            n = Integer.parseInt(st.nextToken());
+            m = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
             areFriends = new boolean[10][10];
             for (int j = 0; j < m; j++) {
-                int y = sc.nextInt();
-                int x = sc.nextInt();
+                int y = Integer.parseInt(st.nextToken());
+                int x = Integer.parseInt(st.nextToken());
                 areFriends[y][x] = areFriends[x][y] = true;
             }
-            sc.nextLine();
-            result.append(countPairs(new boolean[10]));
-            if(i < testCnt -1) {
-                result.append("\n");
-            }
+            result.append(countPairs(new boolean[10])).append("\n");
         }
         System.out.print(result);
-        sc.close();
     }
 
     private static int countPairs(boolean[] taken) {
