@@ -1,29 +1,39 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Problem2447 {
+    public static char[][] arr;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        for (int y = 0; y < n; y++) {
-            for (int x = 0; x < n; x++) {
-                print(y, x);
+    public static void makeStarArray(int x, int y, int num) {
+        if (num == 1) {
+            arr[x][y] = '*';
+            return;
+        }
+        int value = num / 3;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i != 1 || j != 1) makeStarArray(x + (value * i), y + (value * j), value);
             }
-            System.out.print("\n");
         }
     }
 
-    public static void print(int y, int x) {
-        while (y > 0 && x > 0) {
-            if (y % 3 == 1 && x % 3 == 1) {
-                System.out.print(" ");
-                return;
-            }
-            y /= 3;
-            x /= 3;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int size = Integer.parseInt(br.readLine());
+        arr = new char[size][size];
+        for (int i = 0; i < size; i++) {
+            Arrays.fill(arr[i], ' ');
         }
-        System.out.print("*");
+        makeStarArray(0, 0, size);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                sb.append(arr[i][j]);
+            }
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
     }
 }
