@@ -1,0 +1,18 @@
+group 'info.dgseo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+def spockVersion = '1.1-groovy-2.4'
+
+dependencies {
+	testCompile("org.spockframework:spock-core:${spockVersion}")
+	testCompile("org.spockframework:spock-spring:${spockVersion}")
+}
