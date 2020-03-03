@@ -2,6 +2,6 @@ rootProject.name = 'Algorithm-Problem-Solving'
 
 include ':beakjoon'
 include ':topcoder'
-include 'algospot'
-include 'algospot'
+include ':algospot'
+include ':programmers'
 
