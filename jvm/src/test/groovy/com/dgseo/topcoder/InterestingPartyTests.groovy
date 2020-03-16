@@ -1,4 +1,5 @@
-import com.dgseo.topcoder.InterestingParty
+package com.dgseo.topcoder
+
 import spock.lang.Specification
 
 class InterestingPartyTests extends Specification {

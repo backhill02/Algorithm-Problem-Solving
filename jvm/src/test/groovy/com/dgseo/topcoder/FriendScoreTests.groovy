@@ -1,4 +1,5 @@
-import com.dgseo.topcoder.FriendScore
+package com.dgseo.topcoder
+
 import spock.lang.Specification
 
 class FriendScoreTests extends Specification {

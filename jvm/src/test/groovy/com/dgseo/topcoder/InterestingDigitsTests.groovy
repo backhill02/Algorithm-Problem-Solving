@@ -1,4 +1,5 @@
-import com.dgseo.topcoder.InterestingDigits
+package com.dgseo.topcoder
+
 import spock.lang.Specification
 
 class InterestingDigitsTests extends Specification {

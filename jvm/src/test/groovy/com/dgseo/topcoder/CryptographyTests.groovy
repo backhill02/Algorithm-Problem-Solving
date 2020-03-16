@@ -1,4 +1,5 @@
-import com.dgseo.topcoder.Cryptography
+package com.dgseo.topcoder
+
 import spock.lang.Specification
 
 class CryptographyTests extends Specification {

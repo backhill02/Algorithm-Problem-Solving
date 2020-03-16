@@ -1,4 +1,5 @@
-import com.dgseo.topcoder.KiwiJuiceEasy
+package com.dgseo.topcoder
+
 import spock.lang.Specification
 
 class KiwiJuiceEasyTests extends Specification {
